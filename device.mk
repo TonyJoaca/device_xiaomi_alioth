@@ -60,4 +60,8 @@ SRC_MEDIA_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/media
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/qcom-caf/$(YOUR_HW_PLATFORM) \
-    vendor/qcom/opensource/commonsys-intf/display  
+    vendor/qcom/opensource/commonsys-intf/display
+
+#Vulkan
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
