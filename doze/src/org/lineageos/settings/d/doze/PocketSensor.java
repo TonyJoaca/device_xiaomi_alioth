@@ -16,6 +16,7 @@
 
 package org.lineageos.settings.d.doze;
 
+import android.app.AlarmManager;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.hardware.Sensor;
@@ -40,8 +41,9 @@ public class PocketSensor implements SensorEventListener {
     //Last light event value
     private float lle = -1;
     
+    private static long nextAlarm = -1;
     private boolean mPickedUp, mPocketProtection;
-
+    
     private SensorManager mSensorManager;
     private Sensor mProximitySensor, mLightSensor, mPickUpSensor;
     private Context mContext;
@@ -78,7 +80,9 @@ public class PocketSensor implements SensorEventListener {
                 mPocketProtection=false;
                 if (DEBUG) Log.d(TAG, "Into the Pocket");
                 wait(3000);
-                if(PhoneStateReceiver.CUR_STATE == PhoneStateReceiver.IDLE){
+                long timestamp = System.currentTimeMillis();
+                if (PhoneStateReceiver.CUR_STATE == PhoneStateReceiver.IDLE
+                            && (nextAlarm == -1 || timestamp - nextAlarm > 60000)) {
                 PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                 KeyguardManager myKM = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                     if( myKM.inKeyguardRestrictedInputMode() ) {
@@ -108,6 +112,11 @@ public class PocketSensor implements SensorEventListener {
     protected void disable() {
             if (DEBUG) Log.d(TAG, "Disabling");
             mPickedUp=false;
+           //save alarm after turn off screen
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            AlarmManager.AlarmClockInfo alarmClockInfo = alarmManager.getNextAlarmClock();
+            if (alarmClockInfo != null) nextAlarm = alarmClockInfo.getTriggerTime();
+            else nextAlarm = -1;
             mSensorManager.unregisterListener(this, mProximitySensor);
             mSensorManager.unregisterListener(this, mLightSensor);
             mSensorManager.registerListener(this, mPickUpSensor,
