@@ -78,12 +78,14 @@ public class PocketSensor implements SensorEventListener {
                 mPocketProtection=false;
                 if (DEBUG) Log.d(TAG, "Into the Pocket");
                 wait(3000);
+                if(PhoneStateReceiver.CUR_STATE == PhoneStateReceiver.IDLE){
                 PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                 KeyguardManager myKM = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                     if( myKM.inKeyguardRestrictedInputMode() ) {
                         pm.goToSleep(SystemClock.uptimeMillis());
                     } else{ return; 
                     }
+                }
             }
             
         }
