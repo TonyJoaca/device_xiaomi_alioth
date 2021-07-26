@@ -82,7 +82,7 @@ public class PocketSensor implements SensorEventListener {
                 wait(3000);
                 long timestamp = System.currentTimeMillis();
                 if (PhoneStateReceiver.CUR_STATE == PhoneStateReceiver.IDLE
-                            && (nextAlarm == -1 || timestamp - nextAlarm > 60000)) {
+                            && (nextAlarm == -1 || nextAlarm - timestamp > 60000)) {
                 PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                 KeyguardManager myKM = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                     if( myKM.inKeyguardRestrictedInputMode() ) {
