@@ -40,6 +40,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# NQ Client
+PRODUCT_PACKAGES += \
+    libchrome.vendor
+
 #Octavi HALS
 YOUR_HW_PLATFORM := sm8250
 
