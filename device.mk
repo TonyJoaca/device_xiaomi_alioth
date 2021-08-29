@@ -34,7 +34,8 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay 
+    $(LOCAL_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-xd
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -43,18 +44,6 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # NQ Client
 PRODUCT_PACKAGES += \
     libchrome.vendor
-
-#Octavi HALS
-YOUR_HW_PLATFORM := sm8250
-
-# Hardware
-PRODUCT_BOARD_PLATFORM := $(YOUR_HW_PLATFORM)
-PRODUCT_USES_QCOM_HARDWARE := true
-
-# HALS
-SRC_AUDIO_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/audio
-SRC_DISPLAY_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/display
-SRC_MEDIA_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/media
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

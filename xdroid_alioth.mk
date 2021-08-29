@@ -7,14 +7,14 @@
 # Inherit from alioth device
 $(call inherit-product, device/xiaomi/alioth/device.mk)
 
-# Inherit some common OctaviOS stuff.
-$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
-OCTAVI_BUILD_TYPE := Official
-OCTAVI_DEVICE_MAINTAINER := TonyJoaca
-
+# Inherit some common xdroid-caf stuff.
+$(call inherit-product, vendor/xdroid/config/common.mk)
+XDROID_BOOT_DARK := true
+XDROID_UI_BLUR := true
+XDROID_BUILD_TYPE := OBT
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := octavi_alioth
+PRODUCT_NAME := xdroid_alioth
 PRODUCT_DEVICE := alioth
 PRODUCT_BRAND := POCO
 PRODUCT_MANUFACTURER := Xiaomi

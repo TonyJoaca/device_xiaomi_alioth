@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/octavi_alioth.mk
+    $(LOCAL_DIR)/xdroid_alioth.mk
 
 COMMON_LUNCH_CHOICES := \
-    octavi_alioth-user \
-    octavi_alioth-userdebug \
-    octavi_alioth-eng
+    xdroid_alioth-user \
+    xdroid_alioth-userdebug \
+    xdroid_alioth-eng
