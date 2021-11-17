@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/potato_alioth.mk
+    $(LOCAL_DIR)/octavi_alioth.mk
 
 COMMON_LUNCH_CHOICES := \
-    potato_alioth-user \
-    potato_alioth-userdebug \
-    potato_alioth-eng
+    octavi_alioth-user \
+    octavi_alioth-userdebug \
+    octavi_alioth-eng
