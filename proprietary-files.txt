@@ -403,12 +403,10 @@ vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0.so
 
 # Dolby SoundFX
-vendor/lib/soundfx/libeffectproxy.so
 vendor/lib/soundfx/libhwdap.so
 vendor/lib/soundfx/libswdap.so
 vendor/lib/soundfx/libswgamedap.so
 vendor/lib/soundfx/libswvqe.so
-vendor/lib64/soundfx/libeffectproxy.so
 vendor/lib64/soundfx/libhwdap.so
 vendor/lib64/soundfx/libswdap.so
 vendor/lib64/soundfx/libswgamedap.so
