@@ -33,6 +33,9 @@ ro.vendor.audio.zoom.type=1
 # Audio ODM
 ro.vendor.audio.policy.engine.odm=true
 
+# Audio Volume Steps (Media)
+ro.config.media_vol_steps=16
+
 # Display
 ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.has_wide_color_display=true
