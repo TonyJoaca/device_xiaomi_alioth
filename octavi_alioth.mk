@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2021-2022 The LineageOS Project
-# Copyright (C) 2022 VoidUI Project
+# Copyright (C) 2022 OctaviOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -9,28 +9,28 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common VoidUI stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common OctaviOS stuff.
+$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 
 # Device Specific Flags
 TARGET_INCLUDE_WIFI_EXT := true
 TARGET_BOOT_ANIMATION_RES := 1440
 
-# VoidUI Environment Flags
+# OctaviOS Environment Flags
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_INCLUDE_STOCK_ARCORE := true
 TARGET_INCLUDE_LIVE_WALLPAPERS := true
 TARGET_SUPPORTS_QUICK_TAP  := true
 TARGET_USES_MINI_GAPPS := false
 
-# VoidUI Maintainer Flags
-VOID_MAINTAINER := johnmart19
-CUSTOM_BUILD_TYPE := OFFICIAL
+# OctaviOS Maintainer Flags
+OCTAVI_MAINTAINER := TonyJoaca
+OCTAVI_BUILD_TYPE := OFFICIAL
 
 # Inherit from alioth device
 $(call inherit-product, device/xiaomi/alioth/device.mk)
 
-PRODUCT_NAME := aosp_alioth
+PRODUCT_NAME := octavi_alioth
 PRODUCT_DEVICE := alioth
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := POCO
